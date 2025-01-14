@@ -27,27 +27,21 @@ def call(Map config){
 
             stage('Install Dependencies') {
                 steps {
-                    script {
-                        def BuildArt = new lb_buildartefacto();
-                        BuildArt.installNpm()
-                    }
+                    def BuildArt = new lb_buildartefacto();
+                    BuildArt.installNpm()
                 }
             }
 
             stage('Run Tests and Check Coverage') {
                 steps {
-                    script {
-                        def AnalisisSonar = new lb_analisissonarqube();
-                        AnalisisSonar.testCoverage()
-                    }
+                    def AnalisisSonar = new lb_analisissonarqube();
+                    AnalisisSonar.testCoverage()
                 }
             }
 
             stage('SonarQube Analysis') {
                 steps {
-                    script {
-                        AnalisisSonar.analisisSonar()
-                    }
+                    AnalisisSonar.analisisSonar() 
                 }
             }
         }
