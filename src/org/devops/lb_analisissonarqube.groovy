@@ -1,9 +1,9 @@
 package org.devops
 
-def clone(){
+def cloneRepo(){
     git branch: "${env.nameBranch}", url: "${env.UrlGitHub}"
 }
 
-def install(){
+def installNpm(){
     sh 'npm install'
 }

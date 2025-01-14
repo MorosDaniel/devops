@@ -23,7 +23,7 @@ def call(Map config){
                 steps {
                     script{
                         def BuildArt = new lb_buildartefacto();
-                        BuildArt.clone()
+                        BuildArt.cloneRepo()
                     }
                 }
             }
@@ -31,7 +31,7 @@ def call(Map config){
             stage('Install Dependencies') {
                 steps {
                     script {
-                        BuildArt.install()
+                        BuildArt.installNpm()
                     }
                 }
             }
