@@ -24,7 +24,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 script{
-                    cloneRepository(env.nameBranch: rama,env.UrlGitHub: urlgit)
+                    cloneRepository()
                 }
             }
         }
