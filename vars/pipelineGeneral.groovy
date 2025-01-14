@@ -22,7 +22,7 @@ def call(Map config){
             stage('Clone Repository') {
                 steps {
                     script{
-                        def BuildArt = new GitOperations(this);
+                        def BuildArt = new org.devops.GitOperations(this)
                         BuildArt.clone()
                     }
                 }
@@ -39,7 +39,7 @@ def call(Map config){
             stage('Run Tests and Check Coverage') {
                 steps {
                     script {
-                        def AnalisisSonar = new SonarAnalyzer(this);
+                        def AnalisisSonar = new org.devops.SonarAnalyzer(this)
                         AnalisisSonar.testCoverage()
                     }
                 }
