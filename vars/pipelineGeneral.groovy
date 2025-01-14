@@ -1,5 +1,3 @@
-@Library('shared-libraries') _ // Asegúrate de que la librería compartida esté configurada en Jenkins.
-
 pipeline {
     agent any
 
