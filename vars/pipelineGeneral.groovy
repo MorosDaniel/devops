@@ -23,7 +23,7 @@ def call(Map config){
                 steps {
                     script{
                         def BuildArt = new lb_buildartefacto();
-                        BuildArt.cloneRepo()
+                        BuildArt.cloneRepository()
                     }
                 }
             }

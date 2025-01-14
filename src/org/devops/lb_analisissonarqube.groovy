@@ -1,6 +1,6 @@
 package org.devops
 
-def cloneRepo(){
+def cloneRepository(){
     git branch: "${env.nameBranch}", url: "${env.UrlGitHub}"
 }
 
