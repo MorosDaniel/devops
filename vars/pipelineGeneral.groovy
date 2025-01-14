@@ -22,8 +22,7 @@ def call(Map config){
             stage('Clone Repository') {
                 steps {
                     script{
-                        def BuildArt = new lb_buildartefacto();
-                        BuildArt.cloneRepository()
+                        git branch: "${env.nameBranch}", url: "${env.UrlGitHub}"
                     }
                 }
             }
@@ -31,6 +30,7 @@ def call(Map config){
             stage('Install Dependencies') {
                 steps {
                     script {
+                        def BuildArt = new lb_buildartefacto();
                         BuildArt.installNpm()
                     }
                 }
