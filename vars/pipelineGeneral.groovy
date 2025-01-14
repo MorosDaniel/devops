@@ -6,6 +6,8 @@ pipeline {
     tools {
         nodejs 'NodeJS' // NodeJS configurado en Jenkins
         sonarScanner 'sonar-scanner' // SonarQube scanner configurado en Jenkins
+        jdk "jdk"
+        maven  "maven"
     }
 
     environment {
