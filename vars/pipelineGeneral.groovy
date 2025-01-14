@@ -1,5 +1,4 @@
-@Library('lb_buildartefacto')
-@Library('lb_analisissonarqube')
+@Library('devops@feature') _
 
 pipeline {
     agent any
