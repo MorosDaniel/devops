@@ -3,7 +3,6 @@ pipeline {
 
     tools {
         nodejs "NodeJS" // NodeJS configurado en Jenkins
-        sonarScanner "sonarscanner" // SonarQube scanner configurado en Jenkins
         jdk "jdk"
         maven  "maven3"
     }
@@ -12,6 +11,7 @@ pipeline {
         PROJECT_NAME = "${env.GIT_URL.tokenize('/').last().replace('.git', '')}"
         BRANCH_NAME = 'feature' // Cambia si usas otro nombre de rama
         SOURCE_PATH = './src' // Define el directorio donde se encuentran los archivos fuente
+        SCANNER_HOME=tool 'sonarscanner'
     }
 
     stages {
@@ -44,8 +44,11 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 script {
-                    env.source = SOURCE_PATH
-                    org.devops.analisisSonar(env.PROJECT_NAME) // Realiza el análisis de SonarQube
+                    withSonarQubeEnv('sonar-server') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner \
+                    -Dsonar.projectName=Petclinic \
+                    -Dsonar.java.binaries=. \
+                    -Dsonar.projectKey=Petclinic '''
                 }
             }
         }
