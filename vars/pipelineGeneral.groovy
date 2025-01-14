@@ -1,6 +1,6 @@
 @library('devops')_
-import src.org.devops.lb_analisissonarqube
-import src.org.devops.lb_buildartefacto
+import org.devops.lb_analisissonarqube
+import org.devops.lb_buildartefacto
 
 pipeline {
     agent any
