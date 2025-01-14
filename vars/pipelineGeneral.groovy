@@ -1,5 +1,5 @@
-import org.devops.lb_analisissonarqube
-import org.devops.lb_buildartefacto
+import org.devops.GitOperations
+import org.devops.SonarAnalyzer
 
 def call(Map config){
     pipeline {
