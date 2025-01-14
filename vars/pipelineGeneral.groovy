@@ -15,7 +15,7 @@ def call(Map config){
             stage('Clone Repository') {
                 steps {
                     script{
-                        git branch: "${env.GIT_BRANCH_1}", url: "${env.GIT_URL_1}"
+                        git branch: "master", url: "https://github.com/MorosDaniel/Petclinic"
                     }
                 }
             }
