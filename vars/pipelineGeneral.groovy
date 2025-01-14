@@ -1,5 +1,5 @@
-import org.devops.GitOperations
-import org.devops.SonarAnalyzer
+import org.devops.lb_analisissonarqube
+import org.devops.lb_buildartefacto
 
 def call(Map config){
     pipeline {
@@ -22,7 +22,7 @@ def call(Map config){
             stage('Clone Repository') {
                 steps {
                     script{
-                        def BuildArt = new org.devops.GitOperations(this)
+                        def BuildArt = new lb_buildartefacto();
                         BuildArt.clone()
                     }
                 }
@@ -39,7 +39,7 @@ def call(Map config){
             stage('Run Tests and Check Coverage') {
                 steps {
                     script {
-                        def AnalisisSonar = new org.devops.SonarAnalyzer(this)
+                        def AnalisisSonar = new lb_analisissonarqube();
                         AnalisisSonar.testCoverage()
                     }
                 }
