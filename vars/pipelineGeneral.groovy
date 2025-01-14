@@ -20,7 +20,9 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                lb_buildartefacto.cloneRepository()
+                script{
+                    org.devops.lb_buildartefacto.cloneRepository()
+                }
             }
         }
 
