@@ -6,6 +6,8 @@ pipeline {
     agent any
 
     tools {
+        rama = GIT_BRANCH_1
+        urlgit = GIT_URL_1
         nodejs "NodeJS" // NodeJS configurado en Jenkins
         jdk "jdk"
         maven  "maven3"
@@ -22,7 +24,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 script{
-                    org.devops.lb_buildartefacto.cloneRepository()
+                    cloneRepository(env.nameBranch: rama,env.UrlGitHub: urlgit)
                 }
             }
         }
