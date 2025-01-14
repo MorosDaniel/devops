@@ -1,3 +1,6 @@
+@Library('lb_buildartefacto')
+@Library('lb_analisissonarqube')
+
 pipeline {
     agent any
 
@@ -17,10 +20,8 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                script {
-                    env.nameBranch = BRANCH_NAME
-                    env.UrlGitHub = env.GIT_URL
-                    org.devops.clone() // Llama a la función de clonado
+                script{
+                    lb_buildartefacto.clone()
                 }
             }
         }
@@ -28,7 +29,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    org.devops.install() // Llama a la función de instalación
+                    lb_buildartefacto.install()
                 }
             }
         }
@@ -36,7 +37,7 @@ pipeline {
         stage('Run Tests and Check Coverage') {
             steps {
                 script {
-                    org.devops.testCoverage() // Ejecuta las pruebas y genera el informe de cobertura
+                    lb_analisissonarqube.testCoverage()
                 }
             }
         }
@@ -44,14 +45,9 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 script {
-                    withSonarQubeEnv('sonar-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner \
-                    -Dsonar.projectName=Petclinic \
-                    -Dsonar.java.binaries=. \
-                    -Dsonar.projectKey=Petclinic '''
+                    lb_analisissonarqube.analisisSonar()
                 }
             }
         }
     }
-}
 }
