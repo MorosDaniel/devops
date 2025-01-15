@@ -1,5 +1,6 @@
 @Library('devops@feature')_
 
+import org.devops.lb_buildartefacto
 
 def call() {
     pipeline {
@@ -21,8 +22,7 @@ def call() {
             stage('Clone Repository') {
                 steps {
                     script{
-                        def Build = library('devops').org.devops.lb_buildartefacto
-                        Build.installNpm()
+                        lb_buildartefacto.cloneRepository(env.GIT_BRANCH_1,env.GIT_URL_1)
                     }
                 }
             }
