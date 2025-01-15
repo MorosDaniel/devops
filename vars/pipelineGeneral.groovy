@@ -14,12 +14,8 @@ def call() {
         }
 
         environment {
-            PROJECT_NAME = "${env.GIT_URL.tokenize('/').last().replace('.git', '')}"
             BRANCH_NAME = 'feature' 
-            SOURCE_PATH = './src' 
             SCANNER_HOME=tool 'sonarscanner'
-            env.nameBranch = GIT_BRANCH_1
-            env.UrlGitHub = GIT_URL_1
         }
 
         stages {
