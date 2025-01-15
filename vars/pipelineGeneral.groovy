@@ -1,5 +1,4 @@
 @Library('devops@feature')_
-def Sonar = library('devops@feature').org.devops.lb_buildartefacto
 
 
 def call() {
