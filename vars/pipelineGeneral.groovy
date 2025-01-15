@@ -8,18 +8,18 @@ def call() {
         agent any
 
         tools {
-            nodejs "NodeJS" // NodeJS configurado en Jenkins
+            nodejs "NodeJS"
             jdk "jdk"
             maven  "maven3"
         }
 
         environment {
             PROJECT_NAME = "${env.GIT_URL.tokenize('/').last().replace('.git', '')}"
-            BRANCH_NAME = 'feature' // Cambia si usas otro nombre de rama
-            SOURCE_PATH = './src' // Define el directorio donde se encuentran los archivos fuente
+            BRANCH_NAME = 'feature' 
+            SOURCE_PATH = './src' 
             SCANNER_HOME=tool 'sonarscanner'
-            GIT_BRANCH_1 = 'feature' // Cambia según el nombre de tu rama
-            GIT_URL_1 = 'https://github.com/MorosDaniel/Petclinic.git' 
+            GIT_BRANCH_1 = GIT_BRANCH_1 
+            GIT_URL_1 = GIT_URL_1
         }
 
         stages {
@@ -27,7 +27,7 @@ def call() {
                 steps {
                     script{
                         def Build = library('devops@feature').org.devops.lb_buildartefacto
-                        Build.cloneRepository()
+                        Build.installNpm()
                     }
                 }
             }
