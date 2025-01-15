@@ -23,7 +23,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 script{
-                    cloneRepository()
+                    def lib = library('devops@feature').org.devops.cloneRepository
                 }
             }
         }
