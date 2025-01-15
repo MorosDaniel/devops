@@ -1,6 +1,4 @@
 @Library('devops@feature')_
-import org.devops.lb_analisissonarqube
-import org.devops.lb_buildartefacto
 
 pipeline {
     
