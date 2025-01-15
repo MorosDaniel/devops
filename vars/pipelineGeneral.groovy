@@ -23,7 +23,8 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 script{
-                    def lib = library('devops@feature').org.devops.cloneRepository
+                    def lib = library('devops@feature').org.devops.lb_buildartefacto
+                    cloneRepository()
                 }
             }
         }
