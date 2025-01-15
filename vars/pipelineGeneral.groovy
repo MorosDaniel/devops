@@ -7,7 +7,8 @@ def call() {
             stage ('Construccion') {
                 steps{
                     script {
-                        lb_buildartefacto.cloneRepository()
+                        def build = new org.devops.lb_buildartefacto()
+                        build.cloneRepository()
                     }
                 }
             }
