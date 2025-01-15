@@ -18,8 +18,8 @@ def call() {
             BRANCH_NAME = 'feature' 
             SOURCE_PATH = './src' 
             SCANNER_HOME=tool 'sonarscanner'
-            GIT_BRANCH_1 = GIT_BRANCH_1 
-            GIT_URL_1 = GIT_URL_1
+            env.nameBranch = GIT_BRANCH_1
+            env.UrlGitHub = GIT_URL_1
         }
 
         stages {
