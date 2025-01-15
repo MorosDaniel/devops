@@ -2,7 +2,7 @@
 def Sonar = library('devops@feature').org.devops.lb_buildartefacto
 def Build = library('devops@feature').org.devops.lb_buildartefacto
 
-def call{
+def call() {
     pipeline {
         
         agent any
