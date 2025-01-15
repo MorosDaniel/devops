@@ -1,4 +1,6 @@
 @Library('devops@feature')_
+def Sonar = library('devops@feature').org.devops.lb_buildartefacto
+def Build = library('devops@feature').org.devops.lb_buildartefacto
 
 pipeline {
     
@@ -21,8 +23,8 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 script{
-                    def lib = library('devops@feature').org.devops.lb_buildartefacto
-                    cloneRepository()
+                    
+                    Build.cloneRepository()
                 }
             }
         }
@@ -30,8 +32,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    BuildArt = new lb_buildartefacto();
-                    BuildArt.installNpm()
+                    Build.installNpm()
                 }
             }
         }
@@ -39,8 +40,7 @@ pipeline {
         stage('Run Tests and Check Coverage') {
             steps {
                 script {
-                    AnalisisSonar = new lb_analisissonarqube();
-                    AnalisisSonar.testCoverage()
+                    Sonar.testCoverage()
                 }
             }
         }
@@ -48,7 +48,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 script {
-                    AnalisisSonar.analisisSonar()
+                    Sonar.analisisSonar()
                 }
             }
         }
