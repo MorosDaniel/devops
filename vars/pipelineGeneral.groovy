@@ -4,19 +4,35 @@ def call() {
     pipeline {
         agent any
         stages {
-            stage ('debug') {
+            stage ('Construccion') {
                 steps{
                     script {
-                        echo "Branch: ${env.GIT_BRANCH_1}"
-                        echo "GitHub URL: ${env.GIT_URL_1}"
+                        def build = new org.devops.lb_buildartefacto()
+                        build.cloneRepository()
+                    }
+                }
+            }
+            stage ('Instalar dependencias') {
+                steps{
+                    script {
+                        def build = new org.devops.lb_buildartefacto()
+                        build.installNpm()
                     }
                 }
             }
             stage ('Construccion') {
                 steps{
                     script {
-                        def build = new org.devops.lb_buildartefacto()
-                        build.cloneRepository()
+                        def sonar = new org.devops.lb_analisissonarqube()
+                        sonar.testCoverage()
+                    }
+                }
+            }
+            stage ('Construccion') {
+                steps{
+                    script {
+                        def sonar = new org.devops.lb_analisissonarqube()
+                        sonar.analisisSonar(GIT_URL_1)
                     }
                 }
             }
