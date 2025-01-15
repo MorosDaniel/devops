@@ -4,7 +4,7 @@ def call() {
     pipeline {
         agent any
         stages {
-            stage ('Construccion') {
+            stage ('debug') {
                 steps{
                     script {
                         echo "Branch: ${env.nameBranch}"
@@ -20,7 +20,6 @@ def call() {
                     }
                 }
             }
-            
         }
     }
 }
