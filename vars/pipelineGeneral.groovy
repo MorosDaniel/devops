@@ -1,8 +1,6 @@
 @Library('devops@feature')_
 
-import org.devops.lb_buildartefacto
-
-def build = new lb_buildartefacto()
+import org.devops
 
 def call() { 
     pipeline {
@@ -11,7 +9,7 @@ def call() {
             stage ('Construccion') {
                 steps{
                     script {
-                        build.cloneRepository()
+                        lb_buildartefacto.cloneRepository()
                     }
                 }
             }
