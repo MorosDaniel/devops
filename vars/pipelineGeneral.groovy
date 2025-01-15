@@ -21,7 +21,7 @@ def call() {
             stage('Clone Repository') {
                 steps {
                     script{
-                        def Build = library('devops@feature').org.devops.lb_buildartefacto
+                        def Build = library('devops').org.devops.lb_buildartefacto
                         Build.installNpm()
                     }
                 }
