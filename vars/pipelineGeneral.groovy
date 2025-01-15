@@ -7,8 +7,8 @@ def call() {
             stage ('debug') {
                 steps{
                     script {
-                        echo "Branch: ${env.nameBranch}"
-                        echo "GitHub URL: ${env.UrlGitHub}"
+                        echo "Branch: ${env.GIT_BRANCH_1}"
+                        echo "GitHub URL: ${env.GIT_URL_1}"
                     }
                 }
             }
