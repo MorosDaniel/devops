@@ -1,6 +1,6 @@
 @Library('devops@feature')_
 
-import org.devops
+package org.devops
 
 def call() { 
     pipeline {
