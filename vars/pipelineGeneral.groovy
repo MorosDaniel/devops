@@ -3,11 +3,10 @@ import org.devops.lb_analisissonarqube
 import org.devops.lb_buildartefacto
 
 pipeline {
+    
     agent any
 
     tools {
-        rama = GIT_BRANCH_1
-        urlgit = GIT_URL_1
         nodejs "NodeJS" // NodeJS configurado en Jenkins
         jdk "jdk"
         maven  "maven3"
