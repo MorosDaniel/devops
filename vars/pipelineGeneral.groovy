@@ -9,11 +9,10 @@ def call() {
         agent any
         stages {
             stage ('Construccion') {
-                when {
-                    expression { build.cloneRepository() }
-                }
-                steps {
-                    echo "Hecho manito"
+                steps{
+                    script {
+                        build.cloneRepository()
+                    }
                 }
             }
         }
