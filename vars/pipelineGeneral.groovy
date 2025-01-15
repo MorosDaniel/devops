@@ -1,7 +1,5 @@
 @Library('devops@feature')_
 
-package org.devops
-
 def call() { 
     pipeline {
         agent any
