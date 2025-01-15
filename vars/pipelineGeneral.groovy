@@ -3,6 +3,13 @@
 def call() { 
     pipeline {
         agent any
+
+        tools {
+            nodejs "NodeJS"
+            jdk "jdk"
+            maven  "maven3"
+        }
+
         stages {
             stage ('Construccion') {
                 steps{
