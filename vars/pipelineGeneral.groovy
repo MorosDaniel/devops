@@ -20,7 +20,7 @@ def call() {
                     }
                 }
             }
-            stage ('Construccion') {
+            stage ('test') {
                 steps{
                     script {
                         def sonar = new org.devops.lb_analisissonarqube()
@@ -28,7 +28,7 @@ def call() {
                     }
                 }
             }
-            stage ('Construccion') {
+            stage ('analisis en sonar') {
                 steps{
                     script {
                         def sonar = new org.devops.lb_analisissonarqube()
