@@ -8,7 +8,7 @@ def call() {
             nodejs "NodeJS"
             jdk "jdk"
             maven  "maven3"
-            sonarscanner "sonar-scanner"
+            sonar-scanner "sonar-scanner"
         }
 
         stages {
