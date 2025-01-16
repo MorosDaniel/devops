@@ -12,7 +12,7 @@ def call() {
             SONARNAME = 'react-test-jenkinsfile'
         }
 
-        // stages {
+        stages {
         //     stage ('Construccion') {
         //         steps{
         //             script {
