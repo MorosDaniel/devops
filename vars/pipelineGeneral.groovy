@@ -8,8 +8,8 @@ def call() {
             nodejs "NodeJS"
             jdk "jdk"
         }
-        enviroment {
-            SONARNAME "react-test-jenkinsfile"
+        environment {
+            SONARNAME = 'react-test-jenkinsfile'
         }
 
         stages {
