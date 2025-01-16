@@ -8,6 +8,9 @@ def call() {
             nodejs "NodeJS"
             jdk "jdk"
         }
+        enviroment {
+            SONARNAME "Porfin"
+        }
 
         stages {
             // stage ('Construccion') {
@@ -38,7 +41,7 @@ def call() {
                 steps{
                     script {
                         def sonar = new org.devops.lb_analisissonarqube()
-                        sonar.analisisSonar(GIT_URL_1)
+                        sonar.analisisSonar(SONARNAME)
                     }
                 }
             }
