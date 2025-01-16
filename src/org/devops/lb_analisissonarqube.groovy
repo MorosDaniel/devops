@@ -9,8 +9,8 @@ def analisisSonar(gitName){
     if(scannerHome){
         withSonarQubeEnv('sonar-scanner'){
             sh "${scannerHome}/bin/sonar-scanner \
-            -Dsonar.proyectKey=${gitName} \
-            -Dsonar.proyectName=${gitName} \
+            -Dsonar.projectKey=${gitName} \
+            -Dsonar.projectName=${gitName} \
             -Dsonar.sources=${env.source} \
             -Dsonar.tests=src/_test_ \
             -Dsonar.exclusions='**/*.test.js' \
