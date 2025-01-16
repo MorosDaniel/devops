@@ -1,7 +1,7 @@
 package org.devops
 
 def testCoverage(){
-    sh 'npm test'
+    sh 'npm test -- --coverage'
 }
 
 def analisisSonar(gitName){
