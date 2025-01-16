@@ -6,7 +6,7 @@ def call() {
 
         tools {
             nodejs "NodeJS"
-            jdk "JDK"
+            jdk "jdk"
         }
 
         stages {
