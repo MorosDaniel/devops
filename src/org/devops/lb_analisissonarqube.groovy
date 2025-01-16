@@ -9,8 +9,6 @@ def analisisSonar(gitName){
     if(scannerHome){
         withSonarQubeEnv('sonar-scanner'){
             sh """${scannerHome}/bin/sonar-scanner \
-            -Dsonar.host.url='http://localhost:9000/' \
-            -Dsonar.login='squ_6a9fb265f6ed96871fc6ac04c1aca9272525e691' \
             -Dsonar.projectKey=${gitName} \
             -Dsonar.projectName=${gitName} \
             -Dsonar.sources=${env.source} \
