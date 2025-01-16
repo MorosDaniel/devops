@@ -9,7 +9,7 @@ def call() {
             jdk "jdk"
         }
         enviroment {
-            SONARNAME "Porfin"
+            SONARNAME "react-test-jenkinsfile"
         }
 
         stages {
