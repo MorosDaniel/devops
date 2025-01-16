@@ -6,8 +6,7 @@ def call() {
 
         tools {
             nodejs "NodeJS"
-            jdk "jdk"
-            maven  "maven3"
+            jdk "JDK"
         }
 
         stages {
