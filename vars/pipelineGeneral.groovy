@@ -6,42 +6,41 @@ def call() {
 
         tools {
             nodejs "NodeJS"
-            jdk "jdk"
         }
         environment {
             SONARNAME = 'react-test-jenkinsfile'
         }
 
         stages {
-            stage ('Construccion') {
+            stage ('Construccion Imagen Docker') {
                 steps{
                     script {
-                        def build = new org.devops.lb_buildartefacto()
-                        build.cloneRepository()
+                        def build = new org.devops.lb_buildimagen()
+                        build.buildImageDocker(SONARNAME)
                     }
                 }
             }
-            stage ('Instalar dependencias') {
+            stage ('Publicacion Imagen en Docker') {
                 steps{
                     script {
-                        def build = new org.devops.lb_buildartefacto()
-                        build.installNpm()
+                        def publicacion = new org.devops.lb_publicardockerhub()
+                        publicacion.publicarImage(SONARNAME)
                     }
                 }
             }
-            stage ('test') {
+            stage ('Despliegue imagen Docker') {
                 steps{
                     script {
-                        def sonar = new org.devops.lb_analisissonarqube()
-                        sonar.testCoverage()
+                        def despliegue = new org.devops.lb_deploydocker()
+                        despliegue.despliegueContenedor(SONARNAME)
                     }
                 }
             }
-            stage ('analisis en sonar') {
+            stage ('analisis en OWASP') {
                 steps{
                     script {
-                        def sonar = new org.devops.lb_analisissonarqube()
-                        sonar.analisisSonar(SONARNAME)
+                        def sonar = new org.devops.lb_owasp()
+                        sonar.analisisOwasp(SONARNAME)
                     }
                 }
             }
